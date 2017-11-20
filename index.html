@@ -1,0 +1,136 @@
+<html>
+	<head>
+		
+	</head>
+
+	<body>
+		<div id="intro">
+			<h1 id="intro-headline">This is a headline</h1>
+
+			<p class="intro-paragraph">This is a paragraph</p>
+		</div>
+
+		<div id="test">
+			This is a div - click me
+		</div>
+
+		<div id="test2">
+			This is another div - click me
+		</div>
+		
+		
+
+		<ul>
+			<li class="todo todo1">Todo List item 1</li>
+			<li class="todo todo2">Todo List item 2</li>
+			<li class="todo todo3">Todo List item 3</li>
+		</ul>
+
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+
+			/* Selecting Elements */
+
+				// selecting elements in vanilla javascript 
+
+					// selecting elements by ID
+					var headline = document.getElementById("intro-headline");
+					// note no # before intro-headline
+
+					// selecting elements by class name
+					var todos = document.getElementsByClassName("todo");
+					// returns an array of the todo class elements
+					console.log(todos);
+					console.table(todos);
+					// note no . before todo
+
+					// selecting a single element by classname
+					var firstTodo = document.getElementsByClassName("todo")[0];
+					// returns the first element of the array because we used the index [0]
+					console.log(firstTodo);
+
+					var secondTodo = document.getElementsByClassName("todo")[1];
+					// returns the second element of the array because we used the index [1]
+					console.log(secondTodo);
+
+					var todoList = document.querySelector('ul');
+
+
+				// selecting elements in jQuery
+
+					// selecting element by classname
+					var introParagraph = $('.intro-paragraph');
+					console.log(introParagraph);
+
+					// selecting element by ID
+					var introHeading = $('#intro-headline');
+					console.log(introHeading);
+
+					// selecting element by HTML tag
+					var list = $('ul');
+					console.log(list);
+
+
+			/* Events */
+
+					// Vanilla Javascript
+
+					document.getElementById("test").addEventListener("click", function( event ) {
+					   this.textContent = "This was clicked";
+					});
+
+					// jQuery
+
+					$('#test2').click(function() {
+						$(this).text("This was also clicked");
+					});
+
+		
+			/* Loops */
+
+				var exampleArray = [1,2,3];
+
+				var exampleObject = {
+					name: "niki",
+					height: "5'5",
+					legs: 2,
+					arms: 2
+				}
+
+				// Vanilla Javascript
+					for(var i = 0; i < 3; i++ ) {
+						todos[i].textContent = "This was updated in a for loop " + i;
+					}
+
+					for (var property in exampleObject) {
+					  console.log("The " + property + " of the object is " + exampleObject[property]);
+					}
+
+				// jQuery
+
+					// .each will iterate over arrays and objects
+					
+					
+					$.each(exampleArray, function(i) {
+						console.log(exampleArray[i]);
+					});
+
+					var exampleObject = {
+						name: "niki",
+						height: "5'5",
+						legs: 2,
+						arms: 2
+					}
+
+					$.each(exampleObject, function(key, value) {
+						console.log(key +  " : " + value);
+					});
+
+			/* Maniuplating Elements */
+
+
+		</script>
+	</body>
+</html>

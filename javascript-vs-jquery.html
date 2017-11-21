@@ -1,13 +1,19 @@
 <html>
 	<head>
-		
+		<style>
+			/* this styling is just for the .fadeToggle example */
+			.child-list {
+				display: none;
+			}
+		</style>
+
 	</head>
 
 	<body>
 		<div id="intro">
 			<h1 id="intro-headline">This is a headline</h1>
 
-			<p class="intro-paragraph">This is a paragraph</p>
+			<p class="intro-paragraph">This is a par	agraph</p>
 		</div>
 
 		<div id="test">
@@ -18,15 +24,26 @@
 			This is another div - click me
 		</div>
 		
-		
-
 		<ul>
 			<li class="todo todo1">Todo List item 1</li>
 			<li class="todo todo2">Todo List item 2</li>
-			<li class="todo todo3">Todo List item 3</li>
+			<li class="todo todo3 ">Todo List item 3
+			</li>
 		</ul>
 
-
+		<ul>
+			<li>List Item</li>
+			<li>List Item</li>
+			<li>List Item</li>
+			<li class="parent-item">Parent item
+				<ul class="child-list">
+					<li>sub item</li>
+					<li>sub item</li>
+					<li>sub item</li>
+					<li>sub item</li>
+				</ul>
+			</li>
+		</ul>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script>
@@ -57,7 +74,6 @@
 
 					var todoList = document.querySelector('ul');
 
-
 				// selecting elements in jQuery
 
 					// selecting element by classname
@@ -71,7 +87,6 @@
 					// selecting element by HTML tag
 					var list = $('ul');
 					console.log(list);
-
 
 			/* Events */
 
@@ -87,7 +102,6 @@
 						$(this).text("This was also clicked");
 					});
 
-		
 			/* Loops */
 
 				var exampleArray = [1,2,3];
@@ -128,7 +142,13 @@
 						console.log(key +  " : " + value);
 					});
 
-			/* Maniuplating Elements */
+			/* jQuery events + animation methods */
+
+
+				// this searches the DOM for .parent-item and on click it fadeToggles the .child-list
+				$('.parent-item').click(function() {
+					$('.child-list').fadeToggle();
+				});
 
 
 		</script>
